@@ -7,8 +7,8 @@ pipeline {
                 echo 'Building..'
                 script {
                   //sh "cd app/"
-                  sh "docker image build -t ${REPOSITORY_URI}/my-app -f Dockerfile ."
-                  //sh "docker tag "
+                  sh "docker image build -t my-app:latest -f Dockerfile ."
+                  sh "docker tag my-app:latest ${REPOSITORY_URI}:latest"
                 }
             }
         }
@@ -17,7 +17,7 @@ pipeline {
                 echo 'Pushing..'
                 script {
                 sh "aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
-                sh "docker push ${REPOSITORY_URI}"
+                sh "docker push ${REPOSITORY_URI}:latest"
                 }
             }
         }
