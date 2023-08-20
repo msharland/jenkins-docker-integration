@@ -5,8 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "cd app/"
-                sh "docker image build -t cyware-test:latest -f Dockerfile ."
+                script {
+                  sh "cd app/"
+                  sh "docker image build -t cyware-test:latest -f Dockerfile ."
+                }
             }
         }
         stage('Test') {
