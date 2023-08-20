@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 script {
                   //sh "cd app/"
-                  sh "docker image build -t my-app:latest -f Dockerfile ."
+                  sh "docker image build -t ${REPOSITORY_URI}/my-app:latest -f Dockerfile ."
                 }
             }
         }
