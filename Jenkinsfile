@@ -14,11 +14,18 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                    script {
+
+                    }
+                }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                    script {
+                        
+                    }
             }
         }
     }
