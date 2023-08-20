@@ -13,16 +13,18 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
-                //script {
-                //}
+                echo 'Pushing..'
+                script {
+                sh "docker --version"
+                }
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                //script {
-                //}
+                script {
+                sh "docker --version"
+                }
             }
         }
     }
