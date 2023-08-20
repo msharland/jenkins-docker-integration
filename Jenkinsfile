@@ -26,6 +26,7 @@ pipeline {
                 echo 'Deploying....'
                 script {
                 sh "docker --version"
+                //ssh ec2-user@ip "ls -la /home/ubuntu/"
                 }
             }
         }
