@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                cd app/
+                docker image build -t cyware-test:latest -f Dockerfile .
             }
         }
         stage('Test') {
