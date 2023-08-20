@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 cd app/
-                docker image build -t cyware-test:latest -f Dockerfile .
+                sh "docker image build -t cyware-test:latest -f Dockerfile ."
             }
         }
         stage('Test') {
