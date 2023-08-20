@@ -7,7 +7,7 @@ pipeline {
                 echo 'Building..'
                 script {
                   sh "cd app/"
-                  sh "docker image build -t cyware-test:latest -f Dockerfile ."
+                  sh "docker image build -t cyware-test:latest -f ./Dockerfile ."
                 }
             }
         }
