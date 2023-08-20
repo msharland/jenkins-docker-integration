@@ -1,12 +1,12 @@
 pipeline {
     agent any
-    environment {
+    //environment {
         //AWS_ACCOUNT_ID="12345"
         //AWS_DEFAULT_REGION="us-east-2" 
         //IMAGE_REPO_NAME="my-ecr"
         //IMAGE_TAG="latest"
         //REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
- }
+    //}
     stages {
         stage('Build') {
             steps {
