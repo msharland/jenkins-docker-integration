@@ -5,11 +5,17 @@ import html
 
 app = Flask(__name__)
 
+# Hello World Endpoint
 @app.route('/api')
 def hello_world():
     data = {'message': 'Hello, world!'}
     response = jsonify(data)
     return response
+
+# Healthcheck Endpoint
+@app.route('/health')
+def healthcheck():
+    return jsonify({'status': 'ok'})
 
 @app.route('/')
 #def index():
