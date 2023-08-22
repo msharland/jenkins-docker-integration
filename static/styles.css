@@ -1,5 +1,109 @@
 
 html,body{
-    background-color: black;
+    background-color:  #21A9FF;
     color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-image: url(./images/ground_00001.png),url(./images/clouds_00001.png);
+    background-position: center top;
+    background-size: 100% 100%;
+
+}
+
+/* unvisited link */
+a {
+  color: black;
+  font-size: 25px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+   /*  background-color: #21A9FF; */
+    justify-content: center;
+    width: 100vw;
+}
+
+.item {
+    padding: 0;
+/*     background: #21A9FF; */
+    border: 0px solid red;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    justify-content: center;
+    width: 33vw;
+    height: 33vh;
+    line-height: 30vh;
+    z-index: 10;
+  }
+  
+  .balloon-right {
+    padding-top: 25px;
+    padding-left: 77px;
+    /*  background: #21A9FF; */
+    border: 0px solid red;
+    color: white;
+    font-size: 2rem;
+    width: 33vw;
+    height: 33vh;
+    z-index: 10;
+    background-image: url(./images/balloon-right_00001.png);
+    background-repeat: no-repeat;
+  }
+
+.container2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+/*   background: blue; */
+}
+
+.item2 {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  justify-content: center;
+  line-height: 33vh;
+  z-index: 1;
+}
+
+.jenkins {
+  width: 300px; 
+  height: 350px;
+  z-index: 10;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+
+  .jenkins {
+    width: 100%; 
+    z-index: 10;
+  }
 }
