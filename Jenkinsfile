@@ -13,10 +13,10 @@ pipeline {
                 echo 'Building and Tag ...'
                 script {
                   //sh "cd app/"
-                  sh """
+                  sh '''
                     docker image build -t my-app:latest -f Dockerfile .
                     docker tag my-app:latest ${REPOSITORY_URI}:latest
-                  """
+                  '''
                 }
             }
         }
@@ -24,10 +24,10 @@ pipeline {
             steps {
                 echo 'Pushing ...'
                 script {
-                sh """
+                sh '''
                   aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
                   docker push ${REPOSITORY_URI}:latest
-                """
+                '''
                 }
             }
         }
