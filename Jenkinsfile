@@ -4,7 +4,7 @@ pipeline {
     // Environment Variables set in Jenkins Global Environment Variables
     environment {
         AWS_DEFAULT_REGION = "us-east-2"
-        REPOSITORY_URI = ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REPO_NAME}
+        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REPO_NAME}"
     }
     
     stages {
