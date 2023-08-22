@@ -1,32 +1,42 @@
 pipeline {
     agent any
+
     // Environment Variables set in Jenkins Global Environment Variables
+    environment {
+        AWS_DEFAULT_REGION = "us-east-2"
+        REPOSITORY_URI = ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${REPO_NAME}
+    }
+    
     stages {
-        stage('Build') {
+        stage('Docker Build and Docker Tag') {
             steps {
-                echo 'Building..'
+                echo 'Building and Tag ...'
                 script {
                   //sh "cd app/"
-                  sh "docker image build -t my-app:latest -f Dockerfile ."
-                  sh "docker tag my-app:latest ${REPOSITORY_URI}:latest"
+                  sh """
+                    docker image build -t my-app:latest -f Dockerfile .
+                    docker tag my-app:latest ${REPOSITORY_URI}:latest
+                  """
                 }
             }
         }
-        stage('Test') {
+        stage('Docker Push') {
             steps {
-                echo 'Pushing..'
+                echo 'Pushing ...'
                 script {
-                sh "aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
-                sh "docker push ${REPOSITORY_URI}:latest"
+                sh """
+                  aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
+                  docker push ${REPOSITORY_URI}:latest
+                """
                 }
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying ...'
                 script {
                 sh "docker --version"
-                //ssh ec2-user@ip "ls -la /home/ubuntu/"
+
                 }
             }
         }
