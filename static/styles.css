@@ -59,7 +59,8 @@ a:active {
   }
   
   .balloon-right {
-    padding-top: 45px;
+    margin-top: 20px;
+    padding-top: 25px;
     padding-left: 77px;
     /*  background: #21A9FF; */
     border: 0px solid red;
