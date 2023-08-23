@@ -23,7 +23,7 @@ a {
 
 /* visited link */
 a:visited {
-  color: green;
+  color: #22CA92;
 }
 
 /* mouse over link */
@@ -33,7 +33,7 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: blue;
+  color: #1B46F8;
 }
 
 .container{
