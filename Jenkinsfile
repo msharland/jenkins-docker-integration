@@ -40,7 +40,7 @@ pipeline {
                         --cluster ECS \
                         --service-name cyware \
                         --task-definition cyware \
-                        --desired-count 1"
+                        --desired-count 1
                 '''
                 }
             }
