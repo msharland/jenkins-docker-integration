@@ -34,10 +34,14 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying ...'
-                // Shucks, I didn't finish!
                 script {
-                sh "docker --version"
-
+                sh '''
+                    aws ecs create-service \
+                        --cluster ECS \
+                        --service-name cyware \
+                        --task-definition cyware \
+                        --desired-count 1"
+                '''
                 }
             }
         }
